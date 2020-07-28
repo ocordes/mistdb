@@ -24,7 +24,6 @@ load_dotenv()
 application = create_app()
 app = application.app
 
-print(type(app))
 
 """
 utility_processor

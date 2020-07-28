@@ -10,7 +10,7 @@ changed by: Oliver Cordes 2020-07-28
 
 from flask import Blueprint
 
-bp = Blueprint('demo', __name__)
+bp = Blueprint('appdemo', __name__)
 
 
 from app.demo import routes

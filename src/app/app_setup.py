@@ -31,7 +31,7 @@ logfile = 'logs/mistdb.log'
 db = SQLAlchemy()
 migrate = Migrate()
 login = LoginManager()
-##login.login_view = 'auth.login'
+login.login_view = 'demo.routes.demo_index'
 login.login_message = 'Please log in to access this page.'
 #mail = Mail()
 bootstrap = Bootstrap()
@@ -42,11 +42,15 @@ toolbar = DebugToolbarExtension()
 #socketio = SocketIO()
 
 
+@login.user_loader
+def load_user(id):
+    return User.get(int(id))
+
 
 def create_app(config_class=Config):
     app = connexion.App(__name__, specification_dir='./api/')
     # Read the swagger.yml file to configure the endpoints
-    app.add_api('openapi.yaml')
+    #app.add_api('openapi.yaml')
 
     # attach the config
     app.app.config.from_object(Config)
