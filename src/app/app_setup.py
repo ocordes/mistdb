@@ -26,6 +26,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 from .config import Config
 
+logfile = 'logs/mistdb.log'
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -52,8 +53,8 @@ def create_app(config_class=Config):
 
     app.app.debug = app.app.config['DEBUG']
 
-    db.init_app(app.app)
-    migrate.init_app(app.app, db)
+    #db.init_app(app.app)
+    #migrate.init_app(app.app, db)
     login.init_app(app.app)
     #mail.init_app(app.app)
     #moment.init_app(app.app)
@@ -68,8 +69,8 @@ def create_app(config_class=Config):
     ##app.app.config['child_pid'] = None
 
     # register the blueprints
-    #from app.errors import bp as errors_bp
-    #app.app.register_blueprint(errors_bp)
+    from app.demo import bp as demo_bp
+    app.app.register_blueprint(demo_bp)
 
     #from app.auth import bp as auth_bp
     #app.register_blueprint(auth_bp, url_prefix='/auth')
@@ -115,7 +116,7 @@ def create_app(config_class=Config):
     if not os.path.exists('logs'):
         os.mkdir('logs')
 
-    file_handler = RotatingFileHandler('logs/rayqueue.log', maxBytes=10240,
+    file_handler = RotatingFileHandler(logfile, maxBytes=10240,
                                        backupCount=10)
     file_handler.setFormatter(logging.Formatter(
                 '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))
@@ -123,8 +124,8 @@ def create_app(config_class=Config):
     app.app.logger.addHandler(file_handler)
 
     app.app.logger.setLevel(logging.INFO)
-    app.app.logger.info('Rayqueue startup')
+    app.app.logger.info('Mistdb startup')
 
-    app.app.config['logfile'] = 'logs/rayqueue.log'
+    app.app.config['logfile'] = logfile
 
     return app

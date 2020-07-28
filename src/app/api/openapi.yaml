@@ -13,7 +13,7 @@ paths:
       tags: [Auth]
       summary: Return JWT token
       #operationId: app.api.access.login
-      operationId: app.demo_routes.demo_index
+      operationId: app.demo.routes.demo_index
       description: Login procedure
       requestBody:
         required: true
