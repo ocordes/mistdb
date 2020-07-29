@@ -16,7 +16,7 @@ from flask import current_app, request, render_template, url_for, flash,  \
 @bp.route('/', methods=['GET'])
 @bp.route('/index.html', methods=['GET'])
 def demo_index():
-    print(render_template('index.html'))
+    #print(render_template('index.html'))
     return render_template('index.html')
 
 

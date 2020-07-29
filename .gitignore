@@ -130,4 +130,10 @@ dmypy.json
 
 
 data/
-js/node_modules/
+
+
+# webpack js files
+js/node_modules
+js/package-lock.json
+js/.cache
+js/dist
