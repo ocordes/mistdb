@@ -130,10 +130,12 @@ dmypy.json
 
 
 data/
+src/app/static/desk/
 
 
 # webpack js files
-js/node_modules
-js/package-lock.json
-js/.cache
-js/dist
+js*/node_modules
+js*/package-lock.json
+js*/.cache
+js*/dist
+js-demo/
