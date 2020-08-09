@@ -135,6 +135,14 @@ class ContentWidget extends Widget {
     button1.className = 'ql-bold';
     toolbar.appendChild(button1);
 
+    let tooltip_controls = document.createElement('div');
+    tooltip_controls.id = 'tooltip-controls';
+    toolbar.appendChild(tooltip_controls);
+    let bold_button = document.createElement('button');
+    bold_button.id = 'bold_button';
+    bold_button.innerHTML = '<i class="fa fa-bold">BOLD</i>';
+    tooltip_controls.appendChild(bold_button);
+
     let editor = document.createElement('div');
     editor.id = 'editor-container';
     /*

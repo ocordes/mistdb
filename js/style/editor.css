@@ -1,3 +1,4 @@
+@import url('https://cdn.quilljs.com/1.3.6/quill.snow.css');
 
 #editor-container {
   border: 1px solid #ccc;
@@ -5,7 +6,8 @@
   font-size: 1.2em;
   height: 200px;
   margin: 0 auto;
-  width: 450px;
+  /*width: 450px;*/
+  width: 100%;
 }
 #editor-container h1 + p,
 #editor-container h2 + p {
